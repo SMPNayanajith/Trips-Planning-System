@@ -1,0 +1,48 @@
+.footer{
+    background-color: black;
+    padding: 4rem 6rem;
+    margin-top: 10px;
+    color: white;
+  }
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    
+  }
+  .top i{
+    color: white;
+    font-size: 2rem;
+    margin: 0.8rem;
+    
+  }
+  .top i:hover{
+    color: aqua;
+  }
+  .bottom{
+    padding-top: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+  }
+  .column{
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+  }
+  .bottom h4{
+    font-size: 1.3rem;
+    padding: 1rem 0 0.8rem 0;
+  }
+  .column a{
+    text-decoration: none;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
+    color: white;
+    margin-left: 2rem;
+    text-align: left;
+  }
+  .bottom div{width: 50%;}
+
+  

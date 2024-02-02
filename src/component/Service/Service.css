@@ -1,0 +1,100 @@
+.image-container {
+  width: 100%;
+  height: 50vh; /* Half of the viewport height */
+  overflow: hidden;
+  position: relative;
+}
+
+.img3 {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image {
+  position: absolute;
+  color: rgba(15, 2, 2, 0.664);
+  font-size: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(243, 237, 237, 0.466); /* Background color for better readability */
+  padding: 10px 20px;
+}
+
+.badullaall {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Align items horizontally */
+}
+
+.badullaall img {
+  width: 80%;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.text {
+  text-align: left;
+  cursor: pointer;
+  padding: 1rem; /* Adjust padding for text-only */
+  
+}
+
+.all {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.gallall img {
+  width: 92%;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.gallall {
+  display: flex;
+}
+
+.kandyall img {
+  width: 92%;
+  margin: 10px;
+  cursor: pointer;
+}
+.badullaall:hover img
+ {
+  transform: scale(1.3);
+  
+}
+.kandyall:hover img
+ {
+  transform: scale(1.3);
+  
+}
+.gallall:hover img
+ {
+  transform: scale(1.3);
+  
+}
+
+.kandyall {
+  display: flex;
+}
+
+.badulla,
+.kandy ,
+.Galle {
+  color: black;
+  box-shadow: 1px 2px 9px #998e8e;
+  border-radius: 7px;
+  margin: 1.3rem;
+  padding: 1rem;
+  width: calc(33.33% - 2.6rem); /* Calculate width for 3 equal boxes with margin */
+  max-width: 400px;
+
+}
+
+/* ...existing styles... */

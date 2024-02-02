@@ -1,0 +1,62 @@
+/* Home.css */
+
+/* Style for the home container (to cover the viewport) */
+.home-container {
+    width: 100%;
+    height: 100vh; /* Set the height to occupy the full viewport height */
+    overflow: hidden; /* Hide any overflow content */
+    position: relative; /* Set the position to relative */
+    
+
+  }
+  
+  /* Style for the background image */
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+  }
+  
+  .buttonlink{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+ .aa{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.1rem;
+    padding: 8px;
+    font-weight: bold;
+    font-style: italic;
+    
+    
+ }
+
+ .aa h1{
+  font-weight: bold;
+ }
+ .aboutpara{
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Background color for better readability */
+  padding: 10px 20px; /* Padding around the text */
+  color: white;
+  font-size: 24px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Background color for better readability */
+  padding: 10px 20px;
+  margin-top:15% ; /* Padding around the text */
+ }
