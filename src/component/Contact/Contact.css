@@ -39,3 +39,23 @@
   margin: 10px;
   font-weight: bold;
 }
+
+.message-list{
+  margin-top: 20px;
+  border-top: 1px solid black; /* Change the color and style as needed */
+  width: 100%;
+  margin: 20px 0;
+  
+}
+.ul{
+  margin: 40px;
+  width: 600px; /* Set the width of the box */
+  height: 100px; /* Set the height of the box */
+  background-color: #f0f0f0; /* Set the background color */
+  border: 1px solid #ccc; /* Set a border around the box */
+  padding: 20px; /* Set padding inside the box */
+  margin: 20px; /* Set margin around the box */
+  text-align: center;
+  margin-left: 430px;
+  
+}

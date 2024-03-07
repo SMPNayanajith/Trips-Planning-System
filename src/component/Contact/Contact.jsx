@@ -1,15 +1,67 @@
-import React from 'react'
-import NavBar from '../NavBar/NavBar'
+import React, { useState, useEffect } from 'react';
+import NavBar from '../NavBar/NavBar';
 import img4 from '../../images1/image4.jpg';
-import './Contact.css'
+import './Contact.css';
 import Footer from '../../Footer/Footer';
 
 export default function Contact() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+
+  useEffect(() => {
+    // Fetch messages from the backend when the component mounts
+    fetch('http://localhost:8080/api/v1/message/get')
+      .then((response) => response.json())
+      .then((data) => {
+        setMessages(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Send the form data to the backend
+    fetch('http://localhost:8080/api/v1/message/post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, subject, message }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Message sent:', data);
+        // Reset the form fields
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        // Fetch updated messages from the backend
+        fetch('http://your-backend-url/api/v1/message')
+          .then((response) => response.json())
+          .then((data) => {
+            setMessages(data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+
   return (
-    <div className='contact-container'>
-      <NavBar/>
+    <div className="contact-container">
+      <NavBar />
       <div className="image-container">
-        <img src={img4} className='img4' alt="" />
+        <img src={img4} className="img4" alt="" />
         <div className="images">
           <h1>Contact Us</h1>
         </div>
@@ -20,33 +72,40 @@ export default function Contact() {
       </div>
 
       <div className="form">
-      <form>
-      <div class="form-group">
-    <label for="exampleFormControlSelect1">Name</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Subject</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
-      
-  
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Message</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email address</label>
+            <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="subject">Subject</label>
+            <textarea className="form-control" id="subject" value={subject} onChange={(e) => setSubject(e.target.value)}></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea className="form-control" id="message" rows="3" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+          </div>
+          <button type="submit" className="btn btn-outline-dark">Send Message</button>
+        </form>
       </div>
-      <button type="button" class="btn btn-outline-dark">Send Message</button>
 
-      <Footer/>
+      <div className="message-list">
+        <h2>Messages</h2>
+        {messages.map((msg, index) => (
+          <div key={index} className="message-box">
+            <table className='ul'>
+            <tr><strong>Name:</strong> {msg.name}</tr>
+            <tr><strong>Message:</strong> {msg.message}</tr>
+            </table>
+          </div>
+        ))}
+      </div>
 
+      <Footer />
     </div>
-  )
+  );
 }
