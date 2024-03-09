@@ -9,7 +9,7 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     // Fetch messages from the backend when the component mounts
@@ -27,34 +27,33 @@ export default function Contact() {
     e.preventDefault();
 
     // Send the form data to the backend
-    fetch('http://localhost:8080/api/v1/message/post', {
+    fetch('http://localhost:8080/api/v1/message/post',
+    {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, email, subject, message }),
     })
+    
+    
       .then((response) => response.json())
       .then((data) => {
         console.log('Message sent:', data);
+        
         // Reset the form fields
         setName('');
         setEmail('');
         setSubject('');
         setMessage('');
         // Fetch updated messages from the backend
-        fetch('http://your-backend-url/api/v1/message')
-          .then((response) => response.json())
-          .then((data) => {
-            setMessages(data);
+        
           })
           .catch((error) => {
             console.error('Error:', error);
           });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+      
+     
   };
 
   return (
@@ -64,6 +63,7 @@ export default function Contact() {
         <img src={img4} className="img4" alt="" />
         <div className="images">
           <h1>Contact Us</h1>
+          <p>Leave a message to us. We will plan your journey.</p>
         </div>
       </div>
 
