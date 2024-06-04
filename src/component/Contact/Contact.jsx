@@ -40,6 +40,7 @@ export default function Contact() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Message sent:', data);
+        alert('Submitted successfully');
         
         // Reset the form fields
         setName('');
