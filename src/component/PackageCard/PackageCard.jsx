@@ -6,7 +6,7 @@ export default function PackageCard({dataItem}) {
   return (
     <div className='m-2'>
           <div 
-           className=' package-card-wrapper rounded-lg w-full  md:w-4/12 lg:w-full p-2 flex flex-col border-gray-500 border-[2px] border-opacity-25 m-2'>
+           className='  ease-in-out delay-150  package-card-wrapper rounded-lg w-full  md:w-auto lg:w-full p-2 flex flex-col border-gray-500 border-[2px] border-opacity-25 m-2'>
                         <div className='flex flex-col items-center justify-center'>
                             <h2 className='font-semibold text-lg text-gray-500'>
                                 {dataItem.name}

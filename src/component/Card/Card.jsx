@@ -1,7 +1,7 @@
 import React from 'react'
 import PackageCard from '../PackageCard/PackageCard';
 
-export default function Card() {
+const Card = ()=> {
 
     const packageData=[
 
@@ -9,36 +9,39 @@ export default function Card() {
             name:'SilverPackage',
             price:'$200',
             headingNote:'This is discripton',
+            buttonLabel:"Try free",
             packageDetailes:[
                 'First month free',
                 'Limited access',
                 'Maximum 3 reviewa',
             ],
-            buttonLabel:"Try free"
+           
 
         },
         {
             name:'GoldPackage',
             price:'$300',
             headingNote:'This is discripton',
+            buttonLabel:"Bye now",
             packageDetailes:[
                 'First month free',
                 '5 months access',
                 'Maximum 5 review'
             ],
-            buttonLabel:"Bye now"
+            
 
         },
         {
             name:'PlatinumPackage',
             price:'$400',
             headingNote:'This is discripton',
+            buttonLabel:"Customize",
             packageDetailes:[
                 'First month free',
                 'Unimited access',
                 'Unlimited reviews'
             ],
-            buttonLabel:"Customize"
+            
 
         }
     ]
@@ -55,3 +58,4 @@ export default function Card() {
 
   )
 }
+export default Card
